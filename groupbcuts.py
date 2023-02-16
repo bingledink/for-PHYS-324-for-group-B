@@ -3,35 +3,51 @@ import uproot
 import numpy as np
 from   array import array
 #import matplotlib.pypolt as plt
+import argparse
 
-fileptr = uproot.open("TT_Dilept_13.root")
+parser = argparse.ArgumentParser()
+parser.add_argument('-i', '--input', help='Input')
+args = parser.parse_args()
+
+print(args.input)
+
+
+fileptr = uproot.open(args.input)
 
 elec_pt = fileptr['Delphes_Ntuples']['elec_pt'].array()
 elec_eta = fileptr['Delphes_Ntuples']['elec_eta'].array()
 elec_charge = fileptr['Delphes_Ntuples']['elec_charge'].array()
+elec_phi = fileptr['Delphes_Ntuples']['elec_phi'].array()
 
 muon_pt = fileptr['Delphes_Ntuples']['muon_pt'].array()
 muon_eta = fileptr['Delphes_Ntuples']['muon_eta'].array()
 muon_reliso = fileptr['Delphes_Ntuples']['muon_reliso'].array()
 muon_charge = fileptr['Delphes_Ntuples']['muon_charge'].array()
+muon_phi = fileptr['Delphes_Ntuples']['muon_phi'].array()
 
 jet_pt = fileptr['Delphes_Ntuples']['jet_pt'].array()
 jet_eta = fileptr['Delphes_Ntuples']['jet_eta'].array()
 jet_btag = fileptr['Delphes_Ntuples']['jet_btag'].array()
+jet_phi = fileptr['Delphes_Ntuples']['jet_phi'].array()
+
 
 
 
 e_pt = []
 e_eta = []
+e_phi = []
 e_charge = []
 
 mu_pt = []
 mu_eta = []
+m_phi = []
 mu_charge = []
 
 j_pt = []
 j_eta = []
 j_btag = []
+
+
 
 def deltaphi(e_phi, m_phi):
     d_phi = e_phi - m_phi
@@ -103,16 +119,18 @@ for event_idx in range(len(elec_pt)):
     for i in range(len(jet_btag[event_idx])):
         if jet_btag[event_idx][i] > 0:
             counter+=1
-        if jet_btag[event_idx][i] == 0:
-            continue
-
-            
-    if (dR(elec_phi[i][e_index], elec_eta[i][e_index], jet_phi[i][j], jet_eta[i][j]) < 0.4):
+    if counter == 0:
         continue
+
+    if len(j_idx) < 2:
+        continue
+
     
     e_index = ef_idx[0]
     mu_index = muf_idx[0]
-    #j_index = j_idx[0]
+    ljetidx = j_idx[0]
+    sljetidx = j_idx[1]
+
 
     e_pt.append(elec_pt[event_idx][e_index])
     e_eta.append(elec_eta[event_idx][e_index])
@@ -126,13 +144,15 @@ for event_idx in range(len(elec_pt)):
     #j_pt.append(jet_pt[event_idx][j_index])
     #j_eta.append(jet_eta[event_idx][j_index])
     #j_btag.append(jet_btag[event_idx][j_index])
-    
+
+    if (dR(elec_phi[i][e_index], elec_eta[i][e_index], jet_phi[i][j], jet_eta[i][j]) < 0.4):
+        continue
 #print(e_pt)
 #print(mu_pt)
 
 
 
-print(len(jet_btag))
+print(counter)
 
 
 #print(counter)
