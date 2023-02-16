@@ -19,6 +19,8 @@ jet_pt = fileptr['Delphes_Ntuples']['jet_pt'].array()
 jet_eta = fileptr['Delphes_Ntuples']['jet_eta'].array()
 jet_btag = fileptr['Delphes_Ntuples']['jet_btag'].array()
 
+
+
 e_pt = []
 e_eta = []
 e_charge = []
@@ -31,7 +33,19 @@ j_pt = []
 j_eta = []
 j_btag = []
 
+def deltaphi(e_phi, m_phi):
+    d_phi = e_phi - m_phi
+    if (d_phi > np.pi):
+        d_phi -= 2*np.pi
+    if (d_phi < -np.pi):
+        d_phi += 2*np.pi
+    return d_phi
 
+
+def dR(e_phi, e_eta, m_phi, m_eta):
+    d_eta = abs(e_eta - m_eta)
+    d_phi = deltaphi(e_phi, m_phi)
+    return np.sqrt(d_phi**2 + d_eta**2)
 
 for event_idx in range(len(elec_pt)):
     e_idx = []
@@ -57,7 +71,7 @@ for event_idx in range(len(elec_pt)):
     for i in range(len(elec_pt[event_idx])):
         if elec_pt[event_idx][i] < 20:
             continue
-        if abs(elec_eta[event_idx][i]) > 2.4:
+        if abs(elec_eta[event_idx][i]) > 2.4 or (1.4442<abs(elec_eta[event_idx][i])<1.5660):
             continue
         e_idx.append(i)
     
@@ -81,8 +95,9 @@ for event_idx in range(len(elec_pt)):
     for i in range(len(jet_pt[event_idx])):
         if jet_pt[event_idx][i] < 30:
             continue
-        if abs(jet_eta[event_idx][i]) > 2.4:
+        if abs(jet_eta[event_idx][i]) > 2.4 or (1.4442<abs(jet_eta[event_idx][i])<1.5660):
             continue
+
         j_idx.append(i)
 
     for i in range(len(jet_btag[event_idx])):
@@ -90,11 +105,14 @@ for event_idx in range(len(elec_pt)):
             counter+=1
         if jet_btag[event_idx][i] == 0:
             continue
-        
+
+            
+    if (dR(elec_phi[i][e_index], elec_eta[i][e_index], jet_phi[i][j], jet_eta[i][j]) < 0.4):
+        continue
     
     e_index = ef_idx[0]
     mu_index = muf_idx[0]
-    j_index = j_idx[0]
+    #j_index = j_idx[0]
 
     e_pt.append(elec_pt[event_idx][e_index])
     e_eta.append(elec_eta[event_idx][e_index])
@@ -105,15 +123,15 @@ for event_idx in range(len(elec_pt)):
     mu_charge.append(muon_charge[event_idx][mu_index])
 
 
-    j_pt.append(jet_pt[event_idx][j_index])
-    j_eta.append(jet_eta[event_idx][j_index])
-    j_btag.append(jet_btag[event_idx][j_index])
+    #j_pt.append(jet_pt[event_idx][j_index])
+    #j_eta.append(jet_eta[event_idx][j_index])
+    #j_btag.append(jet_btag[event_idx][j_index])
     
 #print(e_pt)
 #print(mu_pt)
 
 
-print(counter)
+
 print(len(jet_btag))
 
 
