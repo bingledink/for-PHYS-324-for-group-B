@@ -9,26 +9,26 @@ parser = argparse.ArgumentParser()
 parser.add_argument('-i', '--input', help='Input')
 args = parser.parse_args()
 
-print(args.input)
-
-
 fileptr = uproot.open(args.input)
 
 elec_pt = fileptr['Delphes_Ntuples']['elec_pt'].array()
 elec_eta = fileptr['Delphes_Ntuples']['elec_eta'].array()
 elec_charge = fileptr['Delphes_Ntuples']['elec_charge'].array()
 elec_phi = fileptr['Delphes_Ntuples']['elec_phi'].array()
+elec_mass = fileptr['Delphes_Ntuples']['elec_mass'].array()
 
 muon_pt = fileptr['Delphes_Ntuples']['muon_pt'].array()
 muon_eta = fileptr['Delphes_Ntuples']['muon_eta'].array()
 muon_reliso = fileptr['Delphes_Ntuples']['muon_reliso'].array()
 muon_charge = fileptr['Delphes_Ntuples']['muon_charge'].array()
 muon_phi = fileptr['Delphes_Ntuples']['muon_phi'].array()
+muon_mass = fileptr['Delphes_Ntuples']['muon_mass'].array()
 
 jet_pt = fileptr['Delphes_Ntuples']['jet_pt'].array()
 jet_eta = fileptr['Delphes_Ntuples']['jet_eta'].array()
 jet_btag = fileptr['Delphes_Ntuples']['jet_btag'].array()
 jet_phi = fileptr['Delphes_Ntuples']['jet_phi'].array()
+
 
 
 
@@ -47,6 +47,15 @@ j_pt = []
 j_eta = []
 j_btag = []
 
+l_pt = []
+l_eta = []
+l_phi = []
+l_mass = []
+
+sl_pt = []
+sl_eta = []
+sl_phi = []
+sl_mass = []
 
 
 def deltaphi(e_phi, m_phi):
@@ -125,11 +134,41 @@ for event_idx in range(len(elec_pt)):
     if len(j_idx) < 2:
         continue
 
-    
+
     e_index = ef_idx[0]
     mu_index = muf_idx[0]
     ljetidx = j_idx[0]
     sljetidx = j_idx[1]
+
+    if (dR(elec_phi[i][e_index], elec_eta[i][e_index], jet_phi[i][j], jet_eta[i][j]) < 0.4):
+        continue
+
+    if elec_pt[event_idx][e_index] > muon_pt[event_idx][mu_index] and elec_pt[event_idx][i] > 25 :
+        l_pt.append(elec_pt[event_idx][e_index])
+        sl_pt.append(muon_pt[event_idx][mu_index])
+        l_eta.append(elec_eta[event_idx][e_index])
+        sl_eta.append(muon_eta[event_idx][mu_index])
+        l_phi.append(elec_phi[event_idx][e_index])
+        sl_phi.append(muon_phi[event_idx][mu_index])
+        l_mass.append(elec_mass[event_idx][e_index])
+        sl_mass.append(muon_mass[event_idx][mu_index])
+
+    elif muon_pt[event_idx][mu_index] > elec_pt[event_idx][mu_index] and muon_pt[event_idx][i] > 25:
+        l_pt.append(muon_pt[event_idx][mu_index])
+        sl_pt.append(elec_pt[event_idx][e_index])
+        sl_eta.append(elec_eta[event_idx][e_index])
+        l_eta.append(muon_eta[event_idx][mu_index])
+        sl_phi.append(elec_phi[event_idx][e_index])
+        l_phi.append(muon_phi[event_idx][mu_index])
+        sl_mass.append(elec_mass[event_idx][e_index])
+        l_mass.append(muon_mass[event_idx][mu_index])
+    else:
+        continue
+
+
+
+
+
 
 
     e_pt.append(elec_pt[event_idx][e_index])
@@ -145,17 +184,11 @@ for event_idx in range(len(elec_pt)):
     #j_eta.append(jet_eta[event_idx][j_index])
     #j_btag.append(jet_btag[event_idx][j_index])
 
-    if (dR(elec_phi[i][e_index], elec_eta[i][e_index], jet_phi[i][j], jet_eta[i][j]) < 0.4):
-        continue
+
 #print(e_pt)
 #print(mu_pt)
 
-
-
 print(counter)
-
-
-#print(counter)
 #print(j_pt)
 
 
