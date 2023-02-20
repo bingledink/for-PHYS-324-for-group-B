@@ -43,9 +43,15 @@ mu_eta = []
 m_phi = []
 mu_charge = []
 
-j_pt = []
-j_eta = []
-j_btag = []
+jl_pt = []
+jl_eta = []
+jl_phi = []
+jl_btag = []
+
+js_pt = []
+js_eta = []
+js_phi = []
+js_btag = []
 
 l_pt = []
 l_eta = []
@@ -117,10 +123,15 @@ for event_idx in range(len(elec_pt)):
     if (len(ef_idx) == 0 or len(muf_idx) == 0):
         continue
 
+    e_index = ef_idx[0]
+    mu_index = muf_idx[0]
+
     for i in range(len(jet_pt[event_idx])):
         if jet_pt[event_idx][i] < 30:
             continue
         if abs(jet_eta[event_idx][i]) > 2.4 or (1.4442<abs(jet_eta[event_idx][i])<1.5660):
+            continue
+        if (dR(elec_phi[event_idx][e_index], elec_eta[event_idx][e_index], jet_phi[event_idx][i], jet_eta[event_idx][i]) < 0.4):
             continue
 
         j_idx.append(i)
@@ -135,15 +146,13 @@ for event_idx in range(len(elec_pt)):
         continue
 
 
-    e_index = ef_idx[0]
-    mu_index = muf_idx[0]
+
     ljetidx = j_idx[0]
     sljetidx = j_idx[1]
 
-    if (dR(elec_phi[i][e_index], elec_eta[i][e_index], jet_phi[i][j], jet_eta[i][j]) < 0.4):
-        continue
 
-    if elec_pt[event_idx][e_index] > muon_pt[event_idx][mu_index] and elec_pt[event_idx][i] > 25 :
+
+    if elec_pt[event_idx][e_index] > muon_pt[event_idx][mu_index] and elec_pt[event_idx][e_index] > 25 :
         l_pt.append(elec_pt[event_idx][e_index])
         sl_pt.append(muon_pt[event_idx][mu_index])
         l_eta.append(elec_eta[event_idx][e_index])
@@ -153,7 +162,7 @@ for event_idx in range(len(elec_pt)):
         l_mass.append(elec_mass[event_idx][e_index])
         sl_mass.append(muon_mass[event_idx][mu_index])
 
-    elif muon_pt[event_idx][mu_index] > elec_pt[event_idx][mu_index] and muon_pt[event_idx][i] > 25:
+    elif muon_pt[event_idx][mu_index] > elec_pt[event_idx][e_index] and muon_pt[event_idx][mu_index] > 25:
         l_pt.append(muon_pt[event_idx][mu_index])
         sl_pt.append(elec_pt[event_idx][e_index])
         sl_eta.append(elec_eta[event_idx][e_index])
@@ -185,9 +194,8 @@ for event_idx in range(len(elec_pt)):
     #j_btag.append(jet_btag[event_idx][j_index])
 
 
-#print(e_pt)
-#print(mu_pt)
 
+print(len(l_pt))
 print(counter)
 #print(j_pt)
 
