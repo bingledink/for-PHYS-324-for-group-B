@@ -131,7 +131,7 @@ for event_idx in range(len(elec_pt)):
             continue
         if abs(jet_eta[event_idx][i]) > 2.4 or (1.4442<abs(jet_eta[event_idx][i])<1.5660):
             continue
-        if (dR(elec_phi[event_idx][e_index], elec_eta[event_idx][e_index], jet_phi[event_idx][i], jet_eta[event_idx][i]) < 0.4):
+        if (dR(elec_phi[event_idx][e_index], elec_eta[event_idx][e_index], jet_phi[event_idx][i], jet_eta[event_idx][i]) < 0.4) or dR(muon_phi[event_idx][mu_index],muon_eta[event_idx][mu_index],jet_phi[event_idx][i],jet_eta[event_idx][i]) < 0.4:
             continue
 
         j_idx.append(i)
