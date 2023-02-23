@@ -28,6 +28,7 @@ jet_pt = fileptr['Delphes_Ntuples']['jet_pt'].array()
 jet_eta = fileptr['Delphes_Ntuples']['jet_eta'].array()
 jet_btag = fileptr['Delphes_Ntuples']['jet_btag'].array()
 jet_phi = fileptr['Delphes_Ntuples']['jet_phi'].array()
+jet_mass = fileptr['Delphes_Ntuples']['jet_phi'].array()
 
 
 
@@ -40,18 +41,21 @@ e_charge = []
 
 mu_pt = []
 mu_eta = []
-m_phi = []
+mu_phi = []
 mu_charge = []
 
-jl_pt = []
-jl_eta = []
-jl_phi = []
-jl_btag = []
+ljet_pt = []
+ljet_eta = []
+ljet_phi = []
+ljet_btag = []
+ljet_mass = []
 
-js_pt = []
-js_eta = []
-js_phi = []
-js_btag = []
+sljet_pt = []
+sljet_eta = []
+sljet_phi = []
+sljet_btag = []
+sljet_mass = []
+
 
 l_pt = []
 l_eta = []
@@ -147,8 +151,8 @@ for event_idx in range(len(elec_pt)):
 
 
 
-    ljetidx = j_idx[0]
-    sljetidx = j_idx[1]
+    ljet_idx = j_idx[0]
+    sljet_idx = j_idx[1]
 
 
 
@@ -190,13 +194,15 @@ for event_idx in range(len(elec_pt)):
     mu_phi.append(muon_phi[event_idx][mu_index])
     mu_charge.append(muon_charge[event_idx][mu_index])
 
+    ljet_pt.append(jet_pt[event_idx][ljet_idx])
+    ljet_phi.append(jet_phi[event_idx][ljet_idx])
+    ljet_eta.append(jet_eta[event_idx][ljet_idx])
+    ljet_mass.append(jet_mass[event_idx][ljet_idx])
 
-    j_pt.append(jet_pt[event_idx][j_index])
-    j_eta.append(jet_eta[event_idx][j_index])
+    sljet_pt.append(jet_pt[event_idx][sljet_idx])
     sljet_phi.append(jet_phi[event_idx][sljet_idx])
-    j_btag.append(jet_btag[event_idx][j_index])
+    sljet_eta.append(jet_eta[event_idx][sljet_idx])
     sljet_mass.append(jet_mass[event_idx][sljet_idx])
-
 
 
 print(len(l_pt))
