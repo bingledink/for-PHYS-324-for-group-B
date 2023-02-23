@@ -182,16 +182,20 @@ for event_idx in range(len(elec_pt)):
 
     e_pt.append(elec_pt[event_idx][e_index])
     e_eta.append(elec_eta[event_idx][e_index])
+    e_phi.append(elec_phi[event_idx][e_index])
     e_charge.append(elec_charge[event_idx][e_index])
     
     mu_pt.append(muon_pt[event_idx][mu_index])
     mu_eta.append(muon_eta[event_idx][mu_index])
+    mu_phi.append(muon_phi[event_idx][mu_index])
     mu_charge.append(muon_charge[event_idx][mu_index])
 
 
-    #j_pt.append(jet_pt[event_idx][j_index])
-    #j_eta.append(jet_eta[event_idx][j_index])
-    #j_btag.append(jet_btag[event_idx][j_index])
+    j_pt.append(jet_pt[event_idx][j_index])
+    j_eta.append(jet_eta[event_idx][j_index])
+    sljet_phi.append(jet_phi[event_idx][sljet_idx])
+    j_btag.append(jet_btag[event_idx][j_index])
+    sljet_mass.append(jet_mass[event_idx][sljet_idx])
 
 
 
