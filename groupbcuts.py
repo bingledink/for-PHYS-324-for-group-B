@@ -1,4 +1,4 @@
-#import ROOT
+import ROOT
 import uproot
 import numpy as np
 from   array import array
@@ -10,6 +10,8 @@ parser.add_argument('-i', '--input', help='Input')
 args = parser.parse_args()
 
 fileptr = uproot.open(args.input)
+
+#Pull da data
 
 elec_pt = fileptr['Delphes_Ntuples']['elec_pt'].array()
 elec_eta = fileptr['Delphes_Ntuples']['elec_eta'].array()
@@ -33,7 +35,7 @@ jet_mass = fileptr['Delphes_Ntuples']['jet_phi'].array()
 
 
 
-
+#Setting arrays for tings
 e_pt = []
 e_eta = []
 e_phi = []
@@ -67,7 +69,7 @@ sl_eta = []
 sl_phi = []
 sl_mass = []
 
-
+#some function setting
 def deltaphi(e_phi, m_phi):
     d_phi = e_phi - m_phi
     if (d_phi > np.pi):
@@ -82,6 +84,7 @@ def dR(e_phi, e_eta, m_phi, m_eta):
     d_phi = deltaphi(e_phi, m_phi)
     return np.sqrt(d_phi**2 + d_eta**2)
 
+#Electron and muons
 for event_idx in range(len(elec_pt)):
     e_idx = []
     mu_idx = []
@@ -129,7 +132,7 @@ for event_idx in range(len(elec_pt)):
 
     e_index = ef_idx[0]
     mu_index = muf_idx[0]
-
+#jets cuts
     for i in range(len(jet_pt[event_idx])):
         if jet_pt[event_idx][i] < 30:
             continue
@@ -155,7 +158,7 @@ for event_idx in range(len(elec_pt)):
     sljet_idx = j_idx[1]
 
 
-
+#Lepton cuts
     if elec_pt[event_idx][e_index] > muon_pt[event_idx][mu_index] and elec_pt[event_idx][e_index] > 25 :
         l_pt.append(elec_pt[event_idx][e_index])
         sl_pt.append(muon_pt[event_idx][mu_index])
@@ -183,7 +186,7 @@ for event_idx in range(len(elec_pt)):
 
 
 
-
+#append all the arrays
     e_pt.append(elec_pt[event_idx][e_index])
     e_eta.append(elec_eta[event_idx][e_index])
     e_phi.append(elec_phi[event_idx][e_index])
