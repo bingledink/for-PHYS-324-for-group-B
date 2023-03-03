@@ -225,7 +225,7 @@ for event_idx in range(len(elec_pt)):
     sljet_eta.append(jet_eta[event_idx][sljet_idx])
     sljet_mass.append(jet_mass[event_idx][sljet_idx])
     
-    onesnzeroes[event_idx] = 1
+    onesnzeroes[event_idx] = [0] * len(elec_pt)
 
 
 print(len(l_pt))
