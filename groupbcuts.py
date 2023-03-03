@@ -34,8 +34,8 @@ jet_mass = fileptr['Delphes_Ntuples']['jet_phi'].array()
 met_pt = fileptr['Delphes_Ntuples']['met_pt'].array()
 met_phi = fileptr['Delphes_Ntuples']['met_phi'].array()
 
-weight = fileplr['Delphes_Ntuples']['weight'].array()
-scalar_ht = fileplr['Delphes_Ntuples']['scalar_ht'].array()
+weight = fileptr['Delphes_Ntuples']['weight'].array()
+scalar_ht = fileptr['Delphes_Ntuples']['scalar_ht'].array()
 
 genjet_pt = fileptr['Delphes_Ntuples']['genjet_pt'].array()
 genjet_eta = fileptr['Delphes_Ntuples']['genjet_eta'].array()
