@@ -7,6 +7,7 @@ import argparse
 
 parser = argparse.ArgumentParser()
 parser.add_argument('-i', '--input', help='Input')
+parser.add_argument('-o', '--output', help='Input')
 args = parser.parse_args()
 
 fileptr = uproot.open(args.input)
