@@ -88,7 +88,7 @@ sl_mass_arr = array('f',[.0])
 
 #Elec branches
 tree.Branch("elec_pt", elec_pt_arr, "elec_pt/F")
-tree.Branch("elec_eta", elec_arr, "elec_eta/F")
+tree.Branch("elec_eta", elec_eta_arr, "elec_eta/F")
 tree.Branch("elec_phi", elec_phi_arr, "elec_phi/F")
 tree.Branch("elec_charge", elec_charge_arr, "elec_charge/F")
 
