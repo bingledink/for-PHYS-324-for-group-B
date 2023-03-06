@@ -333,7 +333,7 @@ for i in range(len(e_pt)):
     sl_pt_arr[0] = sl_pt[i]
     sl_eta_arr[0] = sl_eta[i]
     sl_phi_arr[0] = sl_phi[i]
-    sl_pt_mass[0] = sl_mass[i]
+    sl_mass_arr[0] = sl_mass[i]
     
     tree.Fill()
 
