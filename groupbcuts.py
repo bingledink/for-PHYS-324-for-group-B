@@ -11,7 +11,7 @@ parser.add_argument('-o', '--output', help='Output')
 args = parser.parse_args()
 
 fileptr = uproot.open(args.input)
-outputfile = ROOT.TFile(output, 'recreate')
+outputfile = ROOT.TFile(args.output, 'recreate')
 tree = ROOT.TTree("CutTree", "CutTree")
 
 elec_pt = fileptr['Delphes_Ntuples']['elec_pt'].array()
