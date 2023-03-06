@@ -305,10 +305,10 @@ for event_idx in range(len(elec_pt)):
     onesnzeroes = [0] * len(elec_pt)
 
 for i in range(len(e_pt)):
-    e_pt_arr[0] = e_pt[i]
-    e_phi_arr[0] = e_phi[i]
-    e_eta_arr[0] = e_eta[i]
-    e_charge_arr[0] = e_charge[i]
+    elec_pt_arr[0] = e_pt[i]
+    elec_phi_arr[0] = e_phi[i]
+    elec_eta_arr[0] = e_eta[i]
+    elec_charge_arr[0] = e_charge[i]
     
     muon_pt_arr[0] = mu_pt[i]
     muon_eta_arr[0] = mu_eta[i]
