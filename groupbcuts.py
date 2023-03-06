@@ -124,6 +124,8 @@ tree.Branch("sl_mass", sl_mass_arr, "sl_mass/F")
 #array for events that passed cuts
 onesnzeroes = [0] * len(elec_pt)
 
+e4vector = ROOT.TLorentzVector()
+mu4vector = ROOT.TLorentzVector()
 
 e_pt = []
 e_eta = []
@@ -267,6 +269,11 @@ for event_idx in range(len(elec_pt)):
         sl_mass.append(elec_mass[event_idx][e_index])
         l_mass.append(muon_mass[event_idx][mu_index])
     else:
+        continue
+        
+    e4vector.SetPtEtaPhiM((elec_pt[event_idx][e_index]),(elec_eta[event_idx][e_index]),(elec_phi[event_idx][e_index]),(elec_mass[event_idx][e_index]))
+    mu4vector.SetPtEtaPhiM((muon_pt[event_idx][mu_index]),(muon_eta[event_idx][mu_index]),(muon_phi[event_idx][mu_index]),(muon_mass[event_idx][mu_index]))
+    if (e4vector + mu4vector).M() < 20:
         continue
 
 
