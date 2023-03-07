@@ -160,6 +160,8 @@ sl_eta = []
 sl_phi = []
 sl_mass = []
 
+met_pt_arr = []
+met_phi_arr = []
 
 def deltaphi(e_phi, m_phi):
     d_phi = e_phi - m_phi
@@ -301,6 +303,9 @@ for event_idx in range(len(elec_pt)):
     sljet_phi.append(jet_phi[event_idx][sljet_idx])
     sljet_eta.append(jet_eta[event_idx][sljet_idx])
     sljet_mass.append(jet_mass[event_idx][sljet_idx])
+    
+    met_pt_arr.append(met_pt[event_idx][0])
+    met_phi_arr.append(met_pt[event_idx][0])
     
     onesnzeroes = [0] * len(elec_pt)
 
