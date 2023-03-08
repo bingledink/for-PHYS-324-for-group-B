@@ -391,7 +391,7 @@ bbbar_deta_arr = array('f', [0.])
 llbar_dphi_arr = array('f', [0.])
 llbar_deta_arr = array('f', [0.])
 
-tree.Branch("bbbar_dphi", bbbar_dphi_arr, "bbbar_dphu/F")
+tree.Branch("bbbar_dphi", bbbar_dphi_arr, "bbbar_dphi/F")
 tree.Branch("bbbar_deta", bbbar_deta_arr, "bbbar_deta/F")
 tree.Branch("llbar_dphi", llbar_dphi_arr, "llbar_dphi/F")
 tree.Branch("llbar_deta", llbar_deta_arr, "llbar_deta/F")
