@@ -365,6 +365,52 @@ np_genpart_charge_ones = np_genpart_charge[np_onesnzeroes == 1]
 np_genpart_status_ones = np_genpart_status[np_onesnzeroes == 1]
 np_genpart_pid_ones = np_genpart_pid[np_onesnzeroes == 1]
     
+#np_ones array defining
+
+np_weight_ones_arr = array('f',[0.])
+
+np_jet_pt_ones_arr = array('f',10000*[0.])
+np_jet_eta_ones_arr = array('f',10000*[0.])
+np_jet_phi_ones_arr = array('f',10000*[0.])
+np_jet_mass_ones_arr = array('f',10000*[0.])
+np_jet_btag_ones_arr = array('f',10000*[0.])
+
+np_genjet_pt_ones_arr = array('f',10000*[0.])
+np_genjet_eta_ones_arr = array('f',10000*[0.])
+np_genjet_phi_ones_arr = array('f',10000*[0.])
+np_genjet_mass_ones_arr = array('f',10000*[0.])
+
+np_genpart_pt_ones_arr = array('f',10000*[0.])
+np_genpart_eta_ones_arr = array('f',10000*[0.])
+np_genpart_phi_ones_arr = array('f',10000*[0.])
+np_genpart_mass_ones_arr = array('f',10000*[0.])
+np_genpart_charge_ones_arr = array('f',10000*[0.])
+np_genpart_status_ones_arr = array('f',10000*[0.])
+np_genpart_pid_ones_arr = array('f',10000*[0.])
+
+#np_ones array branches
+
+tree.Branch("np_weight_ones", np_weight_ones_arr, "np_weight_ones/F")
+
+tree.Branch("np_jet_pt_ones", np_jet_pt_ones_arr, "np_jet_pt_ones/F")
+tree.Branch("np_jet_eta_ones", np_jet_eta_ones_arr, "np_jet_eta_ones/F")
+tree.Branch("np_jet_phi_ones", np_jet_phi_ones_arr, "np_jet_phi_ones/F")
+tree.Branch("np_jet_mass_ones", np_jet_mass_ones_arr, "np_jet_mass_ones/F")
+tree.Branch("np_jet_btag_ones", np_jet_btag_ones_arr, "np_jet_btag_ones/F")
+
+tree.Branch("np_genjet_pt_ones", np_genjet_pt_ones_arr, "np_genjet_pt_ones/F")
+tree.Branch("np_genjet_eta_ones", np_genjet_eta_ones_arr, "np_genjet_eta_ones/F")
+tree.Branch("np_genjet_phi_ones", np_genjet_phi_ones_arr, "np_genjet_phi_ones/F")
+tree.Branch("np_genjet_mass_ones", np_genjet_mass_ones_arr, "np_genjet_mass_ones/F")
+
+tree.Branch("np_genpart_pt_ones", np_genpart_pt_ones_arr, "np_genpart_pt_ones/F")
+tree.Branch("np_genpart_eta_ones", np_genpart_eta_ones_arr, "np_genpart_eta_ones/F")
+tree.Branch("np_genpart_phi_ones", np_genpart_phi_ones_arr, "np_genpart_phi_ones/F")
+tree.Branch("np_genpart_mass_ones", np_genpart_mass_ones_arr, "np_genpart_mass_ones/F")
+tree.Branch("np_genpart_charge_ones", np_genpart_charge_ones_arr, "np_genpart_charge_ones/F")
+tree.Branch("np_genpart_status_ones", np_genpart_status_ones_arr, "np_genpart_status_ones/F")
+tree.Branch("np_genpart_pid_ones", np_genpart_pid_ones_arr, "np_genpart_pid_ones/F")
+
 # Lbar creation
 ljet_eta = np.array(ljet_eta)
 sljet_eta = np.array(sljet_eta)
