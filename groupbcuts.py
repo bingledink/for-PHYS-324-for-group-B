@@ -332,6 +332,27 @@ for event_idx in range(len(elec_pt)):
     met_pt_arr.append(met_pt[event_idx][0])
     met_phi_arr.append(met_pt[event_idx][0])
 
+    
+# Lbar creation
+ljet_eta = np.array(ljet_eta)
+sljet_eta = np.array(sljet_eta)
+
+ljet_phi = np.array(ljet_phi)
+sljet_phi = np.array(sljet_phi)
+
+ 
+l_eta = np.array(l_eta)
+sl_eta = np.array(sl_eta)
+
+l_phi = np.array(l_phi)
+sl_phi = np.array(sl_phi)
+
+bbbar_dphi = abs(abs(abs(ljet_phi-sljet_phi)-np.pi)-np.pi)
+bbbar_deta = abs(ljet_eta-sljet_eta)
+
+llbar_dphi = abs(abs(abs(l_phi-sl_phi)-np.pi)-np.pi)
+llbar_deta = abs(l_eta-sl_eta)
+
 for i in range(len(e_pt)):
     elec_pt_arr[0] = e_pt[i]
     elec_phi_arr[0] = e_phi[i]
