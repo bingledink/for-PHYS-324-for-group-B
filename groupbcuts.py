@@ -315,8 +315,14 @@ for event_idx in range(len(elec_pt)):
     
     onesnzeroes[event_idx] = 1
 
-    total_jet_pt.append(jet_pt[event_idx][ljet_idx] + jet_pt[event_idx][sljet_idx])
-    total_pt.append(elec_pt[event_idx][e_index] + muon_pt[event_idx][mu_index] + jet_pt[event_idx][ljet_idx] + jet_pt[event_idx][sljet_idx] + met_pt[event_idx][0])
+    x_total_jet_pt = 0
+    x_total_pt = 0
+    for i in range(len(jet_pt[event_idx])):
+        x_total_jet_pt += jet_pt[event_idx][i]
+        total_jet_pt.append(x_total_jet.pt)
+    for i in range(len(elec_pt)):
+        x_total_pt += jet_pt[event_idx][i] + elec_pt[event_idx][i] + muon_pt[event_idx][i] + met_pt[event_idx][i]
+        total_pt.append(x_total_pt)
     
 #np arrays
 np_onesnzeroes = np.array(onesnzeroes)
