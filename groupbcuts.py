@@ -306,6 +306,8 @@ for event_idx in range(len(elec_pt)):
     
     met_pt_arr.append(met_pt[event_idx][0])
     met_phi_arr.append(met_pt[event_idx][0])
+    
+    onesnzeroes[event_idx] = 1
 
 #np arrays
 np_onesnzeroes = np.array(onesnzeroes)
