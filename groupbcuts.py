@@ -163,6 +163,31 @@ sl_mass = []
 met_pt_arr = []
 met_phi_arr = []
 
+#np arrays
+
+np_onesnzeroes = np.array(onesnzeroes)
+    
+np_weight = np.array(weight)
+    
+np_jet_pt = np.array(jet_pt)
+np_jet_eta = np.array(jet_eta)
+np_jet_phi = np.array(jet_phi)
+np_jet_mass = np.array(jet_mass)
+np_jet_btag = np.array(jet_btag)
+    
+np_genjet_pt = np.array(genjet_pt)
+np_genjet_eta = np.array(genjet_eta)
+np_genjet_phi = np.array(genjet_phi)
+np_genjet_mass = np.array(genjet_mass)
+    
+np_genpart_pt = np.array(genpart_pt)
+np_genpart_eta = np.array(genpart_eta)
+np_genpart_phi = np.array(genpart_phi)
+np_genpart_mass = np.array(genpart_mass)
+np_genpart_charge = np.array(genpart_charge)
+np_genpart_status = np.array(genpart_status)
+np_genpart_pid = np.array(genpart_pid)
+
 def deltaphi(e_phi, m_phi):
     d_phi = e_phi - m_phi
     if (d_phi > np.pi):
@@ -306,8 +331,6 @@ for event_idx in range(len(elec_pt)):
     
     met_pt_arr.append(met_pt[event_idx][0])
     met_phi_arr.append(met_pt[event_idx][0])
-    
-    onesnzeroes = [0] * len(elec_pt)
 
 for i in range(len(e_pt)):
     elec_pt_arr[0] = e_pt[i]
