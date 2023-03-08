@@ -353,6 +353,18 @@ bbbar_deta = abs(ljet_eta-sljet_eta)
 llbar_dphi = abs(abs(abs(l_phi-sl_phi)-np.pi)-np.pi)
 llbar_deta = abs(l_eta-sl_eta)
 
+#New arrays & branches for bar
+bbbar_dphi_arr = array('f', [0.])
+bbbar_deta_arr = array('f', [0.])
+llbar_dphi_arr = array('f', [0.])
+llbar_deta_arr = array('f', [0.])
+
+tree.Branch("bbbar_dphi", bbbar_dphi_arr, "bbbar_dphu/F")
+tree.Branch("bbbar_deta", bbbar_deta_arr, "bbbar_deta/F")
+tree.Branch("llbar_dphi", llbar_dphi_arr, "llbar_dphi/F")
+tree.Branch("llbar_deta", llbar_deta_arr, "llbar_deta/F")
+
+
 for i in range(len(e_pt)):
     elec_pt_arr[0] = e_pt[i]
     elec_phi_arr[0] = e_phi[i]
@@ -383,6 +395,13 @@ for i in range(len(e_pt)):
     sl_eta_arr[0] = sl_eta[i]
     sl_phi_arr[0] = sl_phi[i]
     sl_mass_arr[0] = sl_mass[i]
+    
+    bbbar_dphi_arr[0] = bbbar_dphi[i]
+    bbbar_deta_arr[0] = bbbar_deta[i]
+
+    llbar_dphi_arr[0] = llbar_dphi[i]
+    llbar_deta_arr[0] = llbar_deta[i]
+    
     
     tree.Fill()
 
