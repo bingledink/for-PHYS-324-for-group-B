@@ -163,6 +163,10 @@ sl_mass = []
 met_pt_arr = []
 met_phi_arr = []
 
+scalar_ht_arr = []
+total_pt = []
+total_jet_pt = []
+
 def deltaphi(e_phi, m_phi):
     d_phi = e_phi - m_phi
     if (d_phi > np.pi):
@@ -307,8 +311,13 @@ for event_idx in range(len(elec_pt)):
     met_pt_arr.append(met_pt[event_idx][0])
     met_phi_arr.append(met_pt[event_idx][0])
     
+    scalar_ht_arr.append(scalar_ht[event_idx][0])
+    
     onesnzeroes[event_idx] = 1
 
+    total_jet_pt.append(jet_pt[event_idx][ljet_idx] + jet_pt[event_idx][sljet_idx])
+    total_pt.append(elec_pt[event_idx][e_index] + muon_pt[event_idx][mu_index] + jet_pt[event_idx][ljet_idx] + jet_pt[event_idx][sljet_idx] + met_pt[event_idx][0])
+    
 #np arrays
 np_onesnzeroes = np.array(onesnzeroes)
     
