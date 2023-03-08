@@ -341,6 +341,29 @@ np_genpart_mass = np.array(genpart_mass)
 np_genpart_charge = np.array(genpart_charge)
 np_genpart_status = np.array(genpart_status)
 np_genpart_pid = np.array(genpart_pid)
+
+#np array setting
+
+np_weight_ones = np_weight[np_onesnzeroes == 1]
+
+np_jet_pt_ones = np_jet_pt[np_onesnzeroes == 1]
+np_jet_eta_ones = np_jet_eta[np_onesnzeroes == 1]
+np_jet_phi_ones = np_jet_phi[np_onesnzeroes == 1]
+np_jet_mass_ones = np_jet_mass[np_onesnzeroes == 1]
+np_jet_btag_ones = np_jet_btag[np_onesnzeroes == 1]
+
+np_genjet_pt_ones = np_genjet_pt[np_onesnzeroes == 1]
+np_genjet_eta_ones = np_genjet_eta[np_onesnzeroes == 1]
+np_genjet_phi_ones = np_genjet_phi[np_onesnzeroes == 1]
+np_genjet_mass_ones = np_genjet_mass[np_onesnzeroes == 1]
+
+np_genpart_pt_ones = np_genpart_pt[np_onesnzeroes == 1]
+np_genpart_eta_ones = np_genpart_eta[np_onesnzeroes == 1]
+np_genpart_phi_ones = np_genpart_phi[np_onesnzeroes == 1]
+np_genpart_mass_ones = np_genpart_mass[np_onesnzeroes == 1]
+np_genpart_charge_ones = np_genpart_charge[np_onesnzeroes == 1]
+np_genpart_status_ones = np_genpart_status[np_onesnzeroes == 1]
+np_genpart_pid_ones = np_genpart_pid[np_onesnzeroes == 1]
     
 # Lbar creation
 ljet_eta = np.array(ljet_eta)
