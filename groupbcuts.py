@@ -320,9 +320,7 @@ for event_idx in range(len(elec_pt)):
     for i in range(len(jet_pt[event_idx])):
         x_total_jet_pt += jet_pt[event_idx][i]
         total_jet_pt.append(x_total_jet_pt)
-    for i in range(len(elec_pt)):
-        x_total_pt += jet_pt[event_idx][i] + elec_pt[event_idx][i] + muon_pt[event_idx][i] + met_pt[event_idx][i]
-        total_pt.append(x_total_pt)
+   
     
 #np arrays
 np_onesnzeroes = np.array(onesnzeroes)
