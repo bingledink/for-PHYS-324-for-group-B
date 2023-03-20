@@ -352,76 +352,75 @@ np_genpart_mass = np.array(genpart_mass)
 np_genpart_charge = np.array(genpart_charge)
 np_genpart_status = np.array(genpart_status)
 np_genpart_pid = np.array(genpart_pid)
-
+'''
 #np array setting
 
-np_weight_ones = np_weight[np_onesnzeroes == 1]
+weight_ones = weight[onesnzeroes == 1]
 
-np_jet_pt_ones = np_jet_pt[np_onesnzeroes == 1]
-np_jet_eta_ones = np_jet_eta[np_onesnzeroes == 1]
-np_jet_phi_ones = np_jet_phi[np_onesnzeroes == 1]
-np_jet_mass_ones = np_jet_mass[np_onesnzeroes == 1]
-np_jet_btag_ones = np_jet_btag[np_onesnzeroes == 1]
+jet_pt_ones = jet_pt[onesnzeroes == 1]
+jet_eta_ones = jet_eta[onesnzeroes == 1]
+jet_phi_ones = jet_phi[onesnzeroes == 1]
+jet_mass_ones = jet_mass[onesnzeroes == 1]
+jet_btag_ones = jet_btag[onesnzeroes == 1]
 
-np_genjet_pt_ones = np_genjet_pt[np_onesnzeroes == 1]
-np_genjet_eta_ones = np_genjet_eta[np_onesnzeroes == 1]
-np_genjet_phi_ones = np_genjet_phi[np_onesnzeroes == 1]
-np_genjet_mass_ones = np_genjet_mass[np_onesnzeroes == 1]
+genjet_pt_ones = genjet_pt[onesnzeroes == 1]
+genjet_eta_ones = genjet_eta[onesnzeroes == 1]
+genjet_phi_ones = genjet_phi[onesnzeroes == 1]
+genjet_mass_ones = genjet_mass[onesnzeroes == 1]
 
-np_genpart_pt_ones = np_genpart_pt[np_onesnzeroes == 1]
-np_genpart_eta_ones = np_genpart_eta[np_onesnzeroes == 1]
-np_genpart_phi_ones = np_genpart_phi[np_onesnzeroes == 1]
-np_genpart_mass_ones = np_genpart_mass[np_onesnzeroes == 1]
-np_genpart_charge_ones = np_genpart_charge[np_onesnzeroes == 1]
-np_genpart_status_ones = np_genpart_status[np_onesnzeroes == 1]
-np_genpart_pid_ones = np_genpart_pid[np_onesnzeroes == 1]
+genpart_pt_ones = genpart_pt[onesnzeroes == 1]
+genpart_eta_ones = genpart_eta[onesnzeroes == 1]
+genpart_phi_ones = genpart_phi[onesnzeroes == 1]
+genpart_mass_ones = genpart_mass[onesnzeroes == 1]
+genpart_charge_ones = genpart_charge[onesnzeroes == 1]
+genpart_status_ones = genpart_status[onesnzeroes == 1]
+genpart_pid_ones = genpart_pid[onesnzeroes == 1]
     
 #np_ones array defining
 
-np_weight_ones_arr = array('f',[0.])
+weight_ones_arr = array('f',[0.])
 
-np_jet_pt_ones_arr = array('f',10000*[0.])
-np_jet_eta_ones_arr = array('f',10000*[0.])
-np_jet_phi_ones_arr = array('f',10000*[0.])
-np_jet_mass_ones_arr = array('f',10000*[0.])
-np_jet_btag_ones_arr = array('f',10000*[0.])
+jet_pt_ones_arr = array('f',10000*[0.])
+jet_eta_ones_arr = array('f',10000*[0.])
+jet_phi_ones_arr = array('f',10000*[0.])
+jet_mass_ones_arr = array('f',10000*[0.])
+jet_btag_ones_arr = array('f',10000*[0.])
 
-np_genjet_pt_ones_arr = array('f',10000*[0.])
-np_genjet_eta_ones_arr = array('f',10000*[0.])
-np_genjet_phi_ones_arr = array('f',10000*[0.])
-np_genjet_mass_ones_arr = array('f',10000*[0.])
-
-np_genpart_pt_ones_arr = array('f',10000*[0.])
-np_genpart_eta_ones_arr = array('f',10000*[0.])
-np_genpart_phi_ones_arr = array('f',10000*[0.])
-np_genpart_mass_ones_arr = array('f',10000*[0.])
-np_genpart_charge_ones_arr = array('f',10000*[0.])
-np_genpart_status_ones_arr = array('f',10000*[0.])
-np_genpart_pid_ones_arr = array('f',10000*[0.])
+genjet_pt_ones_arr = array('f',10000*[0.])
+genjet_eta_ones_arr = array('f',10000*[0.])
+genjet_phi_ones_arr = array('f',10000*[0.])
+genjet_mass_ones_arr = array('f',10000*[0.])
+genpart_pt_ones_arr = array('f',10000*[0.])
+genpart_eta_ones_arr = array('f',10000*[0.])
+genpart_phi_ones_arr = array('f',10000*[0.])
+genpart_mass_ones_arr = array('f',10000*[0.])
+genpart_charge_ones_arr = array('f',10000*[0.])
+genpart_status_ones_arr = array('f',10000*[0.])
+genpart_pid_ones_arr = array('f',10000*[0.])
 
 #np_ones array branches
 
-tree.Branch("np_weight_ones", np_weight_ones_arr, "np_weight_ones/F")
+tree.Branch("weight_ones", weight_ones_arr, "weight_ones/F")
 
-tree.Branch("np_jet_pt_ones", np_jet_pt_ones_arr, "np_jet_pt_ones/F")
-tree.Branch("np_jet_eta_ones", np_jet_eta_ones_arr, "np_jet_eta_ones/F")
-tree.Branch("np_jet_phi_ones", np_jet_phi_ones_arr, "np_jet_phi_ones/F")
-tree.Branch("np_jet_mass_ones", np_jet_mass_ones_arr, "np_jet_mass_ones/F")
-tree.Branch("np_jet_btag_ones", np_jet_btag_ones_arr, "np_jet_btag_ones/F")
+tree.Branch("jet_pt_ones", jet_pt_ones_arr, "jet_pt_ones/F")
+tree.Branch("jet_eta_ones", jet_eta_ones_arr, "jet_eta_ones/F")
+tree.Branch("jet_phi_ones", jet_phi_ones_arr, "jet_phi_ones/F")
+tree.Branch("jet_mass_ones", jet_mass_ones_arr, "jet_mass_ones/F")
+tree.Branch("jet_btag_ones", jet_btag_ones_arr, "jet_btag_ones/F")
 
-tree.Branch("np_genjet_pt_ones", np_genjet_pt_ones_arr, "np_genjet_pt_ones/F")
-tree.Branch("np_genjet_eta_ones", np_genjet_eta_ones_arr, "np_genjet_eta_ones/F")
-tree.Branch("np_genjet_phi_ones", np_genjet_phi_ones_arr, "np_genjet_phi_ones/F")
-tree.Branch("np_genjet_mass_ones", np_genjet_mass_ones_arr, "np_genjet_mass_ones/F")
+tree.Branch("genjet_pt_ones", genjet_pt_ones_arr, "genjet_pt_ones/F")
+tree.Branch("genjet_eta_ones", genjet_eta_ones_arr, "genjet_eta_ones/F")
+tree.Branch("genjet_phi_ones", genjet_phi_ones_arr, "genjet_phi_ones/F")
+tree.Branch("genjet_mass_ones", genjet_mass_ones_arr, "genjet_mass_ones/F")
 
-tree.Branch("np_genpart_pt_ones", np_genpart_pt_ones_arr, "np_genpart_pt_ones/F")
-tree.Branch("np_genpart_eta_ones", np_genpart_eta_ones_arr, "np_genpart_eta_ones/F")
-tree.Branch("np_genpart_phi_ones", np_genpart_phi_ones_arr, "np_genpart_phi_ones/F")
-tree.Branch("np_genpart_mass_ones", np_genpart_mass_ones_arr, "np_genpart_mass_ones/F")
-tree.Branch("np_genpart_charge_ones", np_genpart_charge_ones_arr, "np_genpart_charge_ones/F")
-tree.Branch("np_genpart_status_ones", np_genpart_status_ones_arr, "np_genpart_status_ones/F")
-tree.Branch("np_genpart_pid_ones", np_genpart_pid_ones_arr, "np_genpart_pid_ones/F")
-'''
+tree.Branch("genpart_pt_ones", genpart_pt_ones_arr, "genpart_pt_ones/F")
+tree.Branch("genpart_eta_ones", genpart_eta_ones_arr, "genpart_eta_ones/F")
+tree.Branch("genpart_phi_ones", genpart_phi_ones_arr, "genpart_phi_ones/F")
+tree.Branch("genpart_mass_ones", genpart_mass_ones_arr, "genpart_mass_ones/F")
+tree.Branch("genpart_charge_ones", genpart_charge_ones_arr, "genpart_charge_ones/F")
+tree.Branch("genpart_status_ones", genpart_status_ones_arr, "genpart_status_ones/F")
+tree.Branch("genpart_pid_ones", genpart_pid_ones_arr, "genpart_pid_ones/F")
+
 # Lbar creation
 ljet_eta = np.array(ljet_eta)
 sljet_eta = np.array(sljet_eta)
