@@ -253,6 +253,10 @@ for event_idx in range(len(elec_pt)):
     ljet_idx = j_idx[0]
     sljet_idx = j_idx[1]
 
+    e4vector.SetPtEtaPhiM((elec_pt[event_idx][e_index]),(elec_eta[event_idx][e_index]),(elec_phi[event_idx][e_index]),(elec_mass[event_idx][e_index]))
+    mu4vector.SetPtEtaPhiM((muon_pt[event_idx][mu_index]),(muon_eta[event_idx][mu_index]),(muon_phi[event_idx][mu_index]),(muon_mass[event_idx][mu_index]))
+    if (e4vector + mu4vector).M() < 20:
+        continue
 
 
     if elec_pt[event_idx][e_index] > muon_pt[event_idx][mu_index] and elec_pt[event_idx][e_index] > 25 :
@@ -276,17 +280,7 @@ for event_idx in range(len(elec_pt)):
         l_mass.append(muon_mass[event_idx][mu_index])
     else:
         continue
-        
-    e4vector.SetPtEtaPhiM((elec_pt[event_idx][e_index]),(elec_eta[event_idx][e_index]),(elec_phi[event_idx][e_index]),(elec_mass[event_idx][e_index]))
-    mu4vector.SetPtEtaPhiM((muon_pt[event_idx][mu_index]),(muon_eta[event_idx][mu_index]),(muon_phi[event_idx][mu_index]),(muon_mass[event_idx][mu_index]))
-    if (e4vector + mu4vector).M() < 20:
-        continue
-
-
-
-
-
-
+       
 
     e_pt.append(elec_pt[event_idx][e_index])
     e_eta.append(elec_eta[event_idx][e_index])
