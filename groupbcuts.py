@@ -318,18 +318,17 @@ for event_idx in range(len(elec_pt)):
     x_total_jet_pt = 0
     for i in range(len(jet_pt[event_idx])):
         x_total_jet_pt += jet_pt[event_idx][i]
-        total_jet_pt.append(x_total_jet_pt)
-    x_total_jet_pt = 0
+    total_jet_pt.append(x_total_jet_pt)
     x_elec_pt = 0
     x_muon_pt = 0
     for i in range(len(elec_pt[event_idx])):
         x_elec_pt += elec_pt[event_idx][i]
+    for i in range(len(muon_pt[event_idx])):
         x_muon_pt += muon_pt[event_idx][i]
-        x_total_jet_pt += jet_pt[event_idx][i]
-        x_total_pt = x_elec_pt + x_muon_pt + x_total_jet_pt
-        total_pt.append(x_total_pt)
+    x_total_pt = x_elec_pt + x_muon_pt + x_total_jet_pt
+    total_pt.append(x_total_pt)
    
-    
+'''
 #np arrays
 np_onesnzeroes = np.array(onesnzeroes)
     
@@ -422,7 +421,7 @@ tree.Branch("np_genpart_mass_ones", np_genpart_mass_ones_arr, "np_genpart_mass_o
 tree.Branch("np_genpart_charge_ones", np_genpart_charge_ones_arr, "np_genpart_charge_ones/F")
 tree.Branch("np_genpart_status_ones", np_genpart_status_ones_arr, "np_genpart_status_ones/F")
 tree.Branch("np_genpart_pid_ones", np_genpart_pid_ones_arr, "np_genpart_pid_ones/F")
-
+'''
 # Lbar creation
 ljet_eta = np.array(ljet_eta)
 sljet_eta = np.array(sljet_eta)
