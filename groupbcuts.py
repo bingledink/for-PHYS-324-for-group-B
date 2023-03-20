@@ -328,10 +328,10 @@ for event_idx in range(len(elec_pt)):
     x_total_pt = x_elec_pt + x_muon_pt + x_total_jet_pt
     total_pt.append(x_total_pt)
    
-'''
+
 #np arrays
-np_onesnzeroes = np.array(onesnzeroes)
-    
+onesnzeroes = np.array(onesnzeroes)
+'''    
 np_weight = np.array(weight)
     
 np_jet_pt = np.array(jet_pt)
