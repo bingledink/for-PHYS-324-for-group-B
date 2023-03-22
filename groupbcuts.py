@@ -486,12 +486,12 @@ for i in range(len(e_pt)):
 
     weight_ones_arr[0] = weight[i]
 
-    for v in len(genjet_pt[i])
+    for v in len(genjet_pt[i]):
         genjet_pt_ones_arr[0][v] = genjet_pt[v][i]
         genjet_eta_ones_arr[0][v] = genjet_eta[v][i]
         genjet_phi_ones_arr[0][v] = genjet_phi[v][i]
         genjet_mass_ones_arr[0][v] = genjet_mass[v][i]
-    for v in len(genpart_pt[i])
+    for v in len(genpart_pt[i]):
         genpart_pt_ones_arr[0][v] = genpart_pt[v][i]
         genpart_eta_ones_arr[0][v] = genpart_eta[v][i]
         genpart_phi_ones_arr[0][v] = genpart_phi[v][i]
@@ -499,7 +499,7 @@ for i in range(len(e_pt)):
         genpart_charge_ones_arr[0][v] = genpart_charge[v][i]
         genpart_pid_ones_arr[0][v] = genpart_pid[v][i]
         genpart_status_ones_arr[0][v] = genpart_status[v][i]
-    for v in len(jet_pt[i])
+    for v in len(jet_pt[i]):
         jet_pt_ones_arr[0][v] = jet_pt[v][i]
         jet_eta_ones_arr[0][v] = jet_eta[v][i]
         jet_phi_ones_arr[0][v] = jet_phi[v][i]
