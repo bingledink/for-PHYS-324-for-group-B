@@ -484,8 +484,8 @@ for i in range(len(e_pt)):
     llbar_dphi_arr[0] = llbar_dphi[i]
     llbar_deta_arr[0] = llbar_deta[i]
 
-    for v in range(len(weight[i])):
-        weight_ones_arr[0][v] = weight[i][v]
+    #for v in range(len(weight[i])):
+        #weight_ones_arr[0][v] = weight[i][v]
 
     for v in range(len(genjet_pt[i])):
         genjet_pt_ones_arr[0][v] = genjet_pt[v][i]
