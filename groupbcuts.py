@@ -484,28 +484,28 @@ for i in range(len(e_pt)):
     llbar_dphi_arr[0] = llbar_dphi[i]
     llbar_deta_arr[0] = llbar_deta[i]
 
-    #for v in range(len(weight[i])):
-        #weight_ones_arr[0][v] = weight[i][v]
+    for v in range(len(weight[i])):
+        weight_ones_arr[v] = weight[i][v]
 
     for v in range(len(genjet_pt[i])):
-        genjet_pt_ones_arr[0][v] = genjet_pt[v][i]
-        genjet_eta_ones_arr[0][v] = genjet_eta[v][i]
-        genjet_phi_ones_arr[0][v] = genjet_phi[v][i]
-        genjet_mass_ones_arr[0][v] = genjet_mass[v][i]
+        genjet_pt_ones_arr[v] = genjet_pt[i][v]
+        genjet_eta_ones_arr[v] = genjet_eta[i][v]
+        genjet_phi_ones_arr[v] = genjet_phi[i][v]
+        genjet_mass_ones_arr[v] = genjet_mass[i][v]
     for v in range(len(genpart_pt[i])):
-        genpart_pt_ones_arr[0][v] = genpart_pt[v][i]
-        genpart_eta_ones_arr[0][v] = genpart_eta[v][i]
-        genpart_phi_ones_arr[0][v] = genpart_phi[v][i]
-        genpart_mass_ones_arr[0][v] = genpart_mass[v][i]
-        genpart_charge_ones_arr[0][v] = genpart_charge[v][i]
-        genpart_pid_ones_arr[0][v] = genpart_pid[v][i]
-        genpart_status_ones_arr[0][v] = genpart_status[v][i]
+        genpart_pt_ones_arr[v] = genpart_pt[i][v]
+        genpart_eta_ones_arr[v] = genpart_eta[i][v]
+        genpart_phi_ones_arr[v] = genpart_phi[i][v]
+        genpart_mass_ones_arr[v] = genpart_mass[i][v]
+        genpart_charge_ones_arr[v] = genpart_charge[i][v]
+        genpart_pid_ones_arr[v] = genpart_pid[i][v]
+        genpart_status_ones_arr[v] = genpart_status[i][v]
     for v in range(len(jet_pt[i])):
-        jet_pt_ones_arr[0][v] = jet_pt[v][i]
-        jet_eta_ones_arr[0][v] = jet_eta[v][i]
-        jet_phi_ones_arr[0][v] = jet_phi[v][i]
-        jet_mass_ones_arr[0][v] = jet_mass[v][i]
-        jet_btag_ones_arr[0][v] = jet_btag[v][i]
+        jet_pt_ones_arr[v] = jet_pt[i][v]
+        jet_eta_ones_arr[v] = jet_eta[i][v]
+        jet_phi_ones_arr[v] = jet_phi[i][v]
+        jet_mass_ones_arr[v] = jet_mass[i][v]
+        jet_btag_ones_arr[v] = jet_btag[i][v]
     
     tree.Fill()
 
