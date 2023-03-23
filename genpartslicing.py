@@ -14,11 +14,6 @@ fileptr = uproot.open(args.input)
 outputfile = ROOT.TFile(args.output, 'recreate')
 tree = ROOT.TTree("CutTree", "CutTree")
 
-genjet_pt = fileptr['CutTree']['genjet_pt'].array()
-genjet_eta = fileptr['CutTree']['genjet_eta'].array()
-genjet_phi = fileptr['CutTree']['genjet_phi'].array()
-genjet_mass = fileptr['CutTree']['genjet_mass'].array()
-
 genpart_pt = fileptr['CutTree']['genpart_pt'].array()
 genpart_eta = fileptr['CutTree']['genpart_eta'].array()
 genpart_phi = fileptr['CutTree']['genpart_phi'].array()
