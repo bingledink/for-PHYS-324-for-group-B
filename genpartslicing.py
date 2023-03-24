@@ -5,6 +5,26 @@ from   array import array
 #import matplotlib.pypolt as plt
 import argparse
 
+gen_lep_pt = []
+gen_lep_eta = []
+gen_lep_phi = []
+gen_lep_mass = []
+
+gen_alep_pt = []
+gen_alep_eta = []
+gen_alep_phi = []
+gen_alep_mass = []
+
+gen_top_pt = []
+gen_top_eta = []
+gen_top_phi = []
+gen_top_mass = []
+
+gen_atop_pt = []
+gen_atop_eta = []
+gen_atop_phi = []
+gen_atop_mass = []
+
 parser = argparse.ArgumentParser()
 parser.add_argument('-i', '--input', help='Input')
 parser.add_argument('-o', '--output', help='Output')
