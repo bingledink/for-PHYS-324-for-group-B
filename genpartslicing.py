@@ -25,6 +25,11 @@ gen_atop_eta = []
 gen_atop_phi = []
 gen_atop_mass = []
 
+num_leps = 0
+num_antileps = 0
+lep_idx = []
+antilep_idx = []
+
 parser = argparse.ArgumentParser()
 parser.add_argument('-i', '--input', help='Input')
 parser.add_argument('-o', '--output', help='Output')
@@ -41,3 +46,21 @@ genpart_mass = fileptr['CutTree']['genpart_mass'].array()
 genpart_pid = fileptr['CutTree']['genpart_pid'].array()
 genpart_status = fileptr['CutTree']['genpart_status'].array()
 genpart_charge = fileptr['CutTree']['genpart_charge'].array()
+
+
+
+
+for i in range(len(genpart_pt)):
+    num_leps = 0
+    num_antileps = 0
+    lep_idx = 0
+    antilep_idx = 0
+
+    for j in range(len(genpart_pt(i-1))):
+        if (genpart_pid[i][j] == 11 or 13 or 15 ) and (genpart_pid[i][j+1] == -12 or -14 or -16) and num_leps = 0
+            lep_idx = j
+            num_leps += 1
+
+        if (genpart_pid[i][j] == -11 or -13 or -15) and (genpart_pid[i][j + 1] == 12 or 14 or 16) and num_leps = 0
+            antilep_idx = j
+            num_antileps += 1
