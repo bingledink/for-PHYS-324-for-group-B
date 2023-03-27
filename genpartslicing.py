@@ -67,3 +67,25 @@ for i in range(len(genpart_pt)):
 
     if num_lep = 0 or num_antileps = 0
         continue
+    #
+    gen_lep_pt.append(genpart_pt[i][lep_idx])
+    gen_lep_eta.append(genpart_pt[i][lep_idx])
+    gen_lep_phi.append(genpart_pt[i][lep_idx])
+    gen_lep_mass.append(genpart_pt[i][lep_idx])
+
+    gen_alep_pt.append(genpart_pt[i][lep_idx])
+    gen_alep_eta.append(genpart_pt[i][lep_idx])
+    gen_alep_phi.append(genpart_pt[i][lep_idx])
+    gen_alep_mass.append(genpart_pt[i][lep_idx])
+
+    gen_top_pt.append(genpart_pt[i][2])
+    gen_top_eta.append(genpart_pt[i][2])
+    gen_top_phi.append(genpart_pt[i][2])
+    gen_top_mass.append(genpart_pt[i][2])
+
+    gen_atop_pt.append(genpart_pt[i][3])
+    gen_atop_eta.append(genpart_pt[i][3])
+    gen_top_phi.append(genpart_pt[i][3])
+    gen_top_mass.append(genpart_pt[i][3])
+
+
