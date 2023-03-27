@@ -64,3 +64,6 @@ for i in range(len(genpart_pt)):
         if (genpart_pid[i][j] == -11 or -13 or -15) and (genpart_pid[i][j + 1] == 12 or 14 or 16) and num_leps = 0
             antilep_idx = j
             num_antileps += 1
+
+    if num_lep = 0 or num_antileps = 0
+        continue
