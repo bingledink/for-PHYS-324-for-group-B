@@ -37,7 +37,7 @@ args = parser.parse_args()
 
 fileptr = uproot.open(args.input)
 outputfile = ROOT.TFile(args.output, 'recreate')
-tree = ROOT.TTree("CutTree", "CutTree")
+tree = ROOT.TTree("GenSliceTree", "GenSliceTree")
 
 genpart_pt = fileptr['CutTree']['genpart_pt'].array()
 genpart_eta = fileptr['CutTree']['genpart_eta'].array()
@@ -89,19 +89,71 @@ for i in range(len(genpart_pt)):
     gen_top_mass.append(genpart_pt[i][3])
 
 # arrays and branches
-genpart_pt_arr = array('f', [0.])
-genpart_eta_arr = array('f', [0.])
-genpart_phi_arr = array('f', [0.])
-genpart_mass_arr = array('f', [0.])
-genpart_pid_arr = array('f', [0.])
-genpart_status_arr = array('f', [0.])
-genpart_charge_arr = array('f', [0.])
+gen_lep_pt_arr = array('f', [0.])
+gen_lep_eta_arr = array('f', [0.])
+gen_lep_phi_arr = array('f', [0.])
+gen_lep_mass_arr = array('f', [0.])
 
-tree.Branch("genpart_pt", genpart_pt_arr, "genpart_pt/F")
-tree.Branch("genpart_eta", genpart_eta_arr, "genpart_eta/F")
-tree.Branch("genpart_phi", genpart_phi_arr, "genpart_phi/F")
-tree.Branch("genpart_mass", genpart_mass_arr, "genpart_mass/F")
-tree.Branch("genpart_pid", genpart_pid_arr, "genpart_pid/F")
-tree.Branch("genpart_status", genpart_status_arr, "genpart_status/F")
-tree.Branch("genpart_charge", genpart_charge_arr, "genpart_charge/F")
+gen_alep_pt_arr = array('f', [0.])
+gen_alep_eta_arr = array('f', [0.])
+gen_alep_phi_arr = array('f', [0.])
+gen_alep_mass_arr = array('f', [0.])
 
+gen_top_pt_arr = array('f', [0.])
+gen_top_eta_arr = array('f', [0.])
+gen_top_phi_arr = array('f', [0.])
+gen_top_mass_arr = array('f', [0.])
+
+gen_atop_pt_arr = array('f', [0.])
+gen_atop_eta_arr = array('f', [0.])
+gen_atop_phi_arr = array('f', [0.])
+gen_atop_mass_arr = array('f', [0.])
+
+tree.Branch("gen_lep_pt", gen_lep_pt_arr, "gen_lep_pt/F")
+tree.Branch("gen_lep_eta", gen_lep_eta_arr, "gen_lep_eta/F")
+tree.Branch("gen_lep_phi", gen_lep_phi_arr, "gen_lep_phi/F")
+tree.Branch("gen_lep_mass", gen_lep_mass_arr, "gen_lep_mass/F")
+
+tree.Branch("gen_alep_pt", gen_alep_pt_arr, "gen_alep_pt/F")
+tree.Branch("gen_alep_eta", gen_alep_eta_arr, "gen_alep_eta/F")
+tree.Branch("gen_alep_phi", gen_alep_phi_arr, "gen_alep_phi/F")
+tree.Branch("gen_alep_mass", gen_alep_mass_arr, "gen_alep_mass/F")
+
+tree.Branch("gen_top_pt", gen_top_pt_arr, "gen_top_pt/F")
+tree.Branch("gen_top_eta", gen_top_eta_arr, "gen_top_eta/F")
+tree.Branch("gen_top_phi", gen_top_phi_arr, "gen_top_phi/F")
+tree.Branch("gen_top_mass", gen_top_mass_arr, "gen_top_mass/F")
+
+tree.Branch("gen_atop_pt", gen_atop_pt_arr, "gen_atop_pt/F")
+tree.Branch("gen_atop_eta", gen_atop_eta_arr, "gen_atop_eta/F")
+tree.Branch("gen_atop_phi", gen_atop_phi_arr, "gen_atop_phi/F")
+tree.Branch("gen_atop_mass", gen_atop_mass_arr, "gen_atop_mass/F")
+
+for i in range(len(gen_lep_pt)):
+    gen_lep_pt_arr[0] = gen_lep_pt[i]
+    gen_lep_eta_arr[0] = gen_lep_eta[i]
+    gen_lep_phi_arr[0] = gen_lep_phi[i]
+    gen_lep_mass_arr[0] = gen_lep_mass[i]
+    
+    gen_alep_pt_arr[0] = gen_alep_pt[i]
+    gen_alep_eta_arr[0] = gen_alep_eta[i]
+    gen_alep_phi_arr[0] = gen_alep_phi[i]
+    gen_alep_mass_arr[0] = gen_alep_mass[i]
+    
+    gen_top_pt_arr[0] = gen_top_pt[i]
+    gen_top_eta_arr[0] = gen_top_eta[i]
+    gen_top_phi_arr[0] = gen_top_phi[i]
+    gen_top_mass_arr[0] = gen_top_mass[i]
+    
+    gen_atop_pt_arr[0] = gen_atop_pt[i]
+    gen_atop_eta_arr[0] = gen_atop_eta[i]
+    gen_atop_phi_arr[0] = gen_atop_phi[i]
+    gen_atop_mass_arr[0] = gen_atop_mass[i]
+    
+    tree.Fill()
+    
+outputfile.Write()
+outputfile.Close()
+    
+
+    
