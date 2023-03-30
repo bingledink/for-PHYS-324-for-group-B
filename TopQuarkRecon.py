@@ -132,10 +132,13 @@ for event_idx in range(len(elec_pt)):
                 continue
             if jet_pt[event_idx][i_2] < 30:
                 continue
-            if abs(jet_eta[event_idx][i_1]) < 2.4:
+            if abs(jet_eta[event_idx][i_1]) > 2.4:
                 continue
-            if abs(jet_eta[event_idx][i_2]) < 2.4:
+            if abs(jet_eta[event_idx][i_2]) > 2.4:
                 continue
+            if jet_btag[event_idx][i_1] ==0 and jet_btag[event_idx][i_2] == 0:
+                continue
+            
 
             
             
