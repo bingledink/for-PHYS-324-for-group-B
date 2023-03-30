@@ -67,7 +67,7 @@ for i in range(len(genpart_pt)):
 
     if num_lep = 0 or num_antileps = 0
         continue
-    #
+
     gen_lep_pt.append(genpart_pt[i][lep_idx])
     gen_lep_eta.append(genpart_pt[i][lep_idx])
     gen_lep_phi.append(genpart_pt[i][lep_idx])
