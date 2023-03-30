@@ -35,7 +35,6 @@ parser.add_argument('-i', '--input', help='Input')
 args = parser.parse_args()
 
 fileptr = uproot.open(args.input)
-outputfile = ROOT.TFile(args.output, 'recreate')
 tree = ROOT.TTree("GenSliceTree", "GenSliceTree")
 
 genpart_pt = fileptr['CutTree']['genpart_pt'].array()
