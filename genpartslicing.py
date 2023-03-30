@@ -88,4 +88,20 @@ for i in range(len(genpart_pt)):
     gen_top_phi.append(genpart_pt[i][3])
     gen_top_mass.append(genpart_pt[i][3])
 
+# arrays and branches
+genpart_pt_arr = array('f', [0.])
+genpart_eta_arr = array('f', [0.])
+genpart_phi_arr = array('f', [0.])
+genpart_mass_arr = array('f', [0.])
+genpart_pid_arr = array('f', [0.])
+genpart_status_arr = array('f', [0.])
+genpart_charge_arr = array('f', [0.])
+
+tree.Branch("genpart_pt", genpart_pt_arr, "genpart_pt/F")
+tree.Branch("genpart_eta", genpart_eta_arr, "genpart_eta/F")
+tree.Branch("genpart_phi", genpart_phi_arr, "genpart_phi/F")
+tree.Branch("genpart_mass", genpart_mass_arr, "genpart_mass/F")
+tree.Branch("genpart_pid", genpart_pid_arr, "genpart_pid/F")
+tree.Branch("genpart_status", genpart_status_arr, "genpart_status/F")
+tree.Branch("genpart_charge", genpart_charge_arr, "genpart_charge/F")
 
