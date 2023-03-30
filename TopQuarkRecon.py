@@ -45,3 +45,66 @@ jet_phi = fileptr['CutTree']['jet_phi'].array()
 jet_mass = fileptr['CutTree']['jet_phi'].array()
 
 weight = fileptr['CutTree']['weight'].array()
+
+onesnzeroes = [0] * len(elec_pt)
+
+e4vector = ROOT.TLorentzVector()
+mu4vector = ROOT.TLorentzVector()
+
+lep_pt = []
+lep_eta = []
+lep_phi = []
+lep_mass = []
+
+alep_pt = []
+alep_eta = []
+alep_phi = []
+alep_mass = []
+
+top_pt = []
+top_eta = []
+top_phi = []
+top_mass = []
+
+atop_pt = []
+atop_eta = []
+atop_phi = []
+atop_mass = []
+
+b_pt = []
+b_eta = []
+b_phi = []
+b_mass = []
+
+bbar_pt = []
+bbar_eta = []
+bbar_phi = []
+bbar_mass = []
+
+nu_pt = []
+nu_eta = []
+nu_phi = []
+
+anu_pt = []
+anu_eta = []
+anu_phi = []
+
+tt_mass = []
+gentt_mass = []
+
+gen_top_pt = []
+gen_top_eta = []
+gen_top_phi = []
+gen_top_rap = []
+
+gen_atop_pt = []
+gen_atop_eta = []
+gen_atop_phi = []
+gen_atop_rap = []
+
+for i in range (len(elec_pt)):
+    lep4vector = ROOT.TLorentzVector
+    alep4vector = ROOT.TLorentzVector
+    
+
+
