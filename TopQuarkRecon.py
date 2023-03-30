@@ -13,7 +13,7 @@ args = parser.parse_args()
 
 fileptr = uproot.open(args.input)
 outputfile = ROOT.TFile(args.output, 'recreate')
-tree = ROOT.TTree("CutTree", "CutTree")
+#tree = ROOT.TTree("CutTree", "CutTree")
 
 genpart_pt = fileptr['CutTree']['genpart_pt'].array()
 genpart_eta = fileptr['CutTree']['genpart_eta'].array()
@@ -45,3 +45,103 @@ jet_phi = fileptr['CutTree']['jet_phi'].array()
 jet_mass = fileptr['CutTree']['jet_phi'].array()
 
 weight = fileptr['CutTree']['weight'].array()
+
+onesnzeroes = [0] * len(elec_pt)
+
+e4vector = ROOT.TLorentzVector()
+mu4vector = ROOT.TLorentzVector()
+
+lep_pt = []
+lep_eta = []
+lep_phi = []
+lep_mass = []
+
+alep_pt = []
+alep_eta = []
+alep_phi = []
+alep_mass = []
+
+top_pt = []
+top_eta = []
+top_phi = []
+top_mass = []
+
+atop_pt = []
+atop_eta = []
+atop_phi = []
+atop_mass = []
+
+b_pt = []
+b_eta = []
+b_phi = []
+b_mass = []
+
+bbar_pt = []
+bbar_eta = []
+bbar_phi = []
+bbar_mass = []
+
+nu_pt = []
+nu_eta = []
+nu_phi = []
+
+anu_pt = []
+anu_eta = []
+anu_phi = []
+
+tt_mass = []
+gentt_mass = []
+
+gen_top_pt = []
+gen_top_eta = []
+gen_top_phi = []
+gen_top_rap = []
+
+gen_atop_pt = []
+gen_atop_eta = []
+gen_atop_phi = []
+gen_atop_rap = []
+
+for event_idx in range(len(elec_pt)):
+    lep4vector = ROOT.TLorentzVector
+    alep4vector = ROOT.TLorentzVector
+    if elec_charge[event_idx] == -1 and muon_charge[event_idx] == 1:
+        lep4vector.SetPtEtaPhiM((elec_pt[event_idx]), (elec_eta[event_idx]),
+                              (elec_phi[event_idx]), (elec_mass[event_idx]))
+        alep4vector.SetPtEtaPhiM((muon_pt[event_idx]), (muon_eta[event_idx]),
+                               (muon_phi[event_idx]), (muon_mass[event_idx]))
+
+    elif elec_charge[event_idx] == 1 and muon_charge[event_idx] == -1:
+        alep4vector.SetPtEtaPhiM((elec_pt[event_idx]), (elec_eta[event_idx]),
+                              (elec_phi[event_idx]), (elec_mass[event_idx]))
+        lep4vector.SetPtEtaPhiM((muon_pt[event_idx]), (muon_eta[event_idx]),
+                               (muon_phi[event_idx]), (muon_mass[event_idx]))
+    met_x = met_pt[event_idx] * cos(met_phi[event_idx])
+    met_y = met_pt[event_idx] * sin(met_phi[event_idx])
+    
+    btag_counter = 0
+    high_w = 0
+    tt_mass_final = 0
+    
+    for i_1 in range(len(jet_pt[event_idx])):
+        
+        for i_2 in range(len(jet_pt[event_idx])):
+            if i_1 >= i_2:
+                continue
+            if jet_pt[event_idx][i_1] < 30:
+                continue
+            if jet_pt[event_idx][i_2] < 30:
+                continue
+            if abs(jet_eta[event_idx][i_1]) < 2.4:
+                continue
+            if abs(jet_eta[event_idx][i_2]) < 2.4:
+                continue
+
+            
+            
+    
+        
+    
+    
+
+
