@@ -138,7 +138,7 @@ for event_idx in range(len(elec_pt)):
                 continue
             if jet_btag[event_idx][i_1] ==0 and jet_btag[event_idx][i_2] == 0:
                 continue
-            
+
 
             
             
