@@ -32,7 +32,6 @@ antilep_idx = []
 
 parser = argparse.ArgumentParser()
 parser.add_argument('-i', '--input', help='Input')
-parser.add_argument('-o', '--output', help='Output')
 args = parser.parse_args()
 
 fileptr = uproot.open(args.input)
