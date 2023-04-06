@@ -35,7 +35,6 @@ parser.add_argument('-i', '--input', help='Input')
 args = parser.parse_args()
 
 fileptr = uproot.open(args.input)
-tree = ROOT.TTree("GenSliceTree", "GenSliceTree")
 
 genpart_pt = fileptr['CutTree']['genpart_pt'].array()
 genpart_eta = fileptr['CutTree']['genpart_eta'].array()
@@ -85,6 +84,10 @@ for i in range(len(genpart_pt)):
     gen_atop_eta.append(genpart_pt[i][3])
     gen_top_phi.append(genpart_pt[i][3])
     gen_top_mass.append(genpart_pt[i][3])
+
+outputfile = ROOT.TFile(args.imput, "recreate")    
+
+tree = ROOT.TTree("GenSliceTree", "GenSliceTree")
 
 # arrays and branches
 gen_lep_pt_arr = array('f', [0.])
