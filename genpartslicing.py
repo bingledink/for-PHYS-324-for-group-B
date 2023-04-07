@@ -36,13 +36,13 @@ args = parser.parse_args()
 
 fileptr = uproot.open(args.input)
 
-genpart_pt = fileptr['CutTree']['genpart_pt'].array()
-genpart_eta = fileptr['CutTree']['genpart_eta'].array()
-genpart_phi = fileptr['CutTree']['genpart_phi'].array()
-genpart_mass = fileptr['CutTree']['genpart_mass'].array()
-genpart_pid = fileptr['CutTree']['genpart_pid'].array()
-genpart_status = fileptr['CutTree']['genpart_status'].array()
-genpart_charge = fileptr['CutTree']['genpart_charge'].array()
+genpart_pt = fileptr['CutTree']['genpart_pt_ones'].array()
+genpart_eta = fileptr['CutTree']['genpart_eta_ones'].array()
+genpart_phi = fileptr['CutTree']['genpart_phi_ones'].array()
+genpart_mass = fileptr['CutTree']['genpart_mass_ones'].array()
+genpart_pid = fileptr['CutTree']['genpart_pid_ones'].array()
+genpart_status = fileptr['CutTree']['genpart_status_ones'].array()
+genpart_charge = fileptr['CutTree']['genpart_charge_ones'].array()
 
 
 
