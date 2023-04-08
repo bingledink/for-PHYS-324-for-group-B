@@ -122,9 +122,9 @@ tree.Branch("sl_mass", sl_mass_arr, "sl_mass/F")
 
 
 #array for events that passed cuts
-onesnzeroes = [0] * len(elec_pt)
+onesnzeroes = np.zeros(len(elec_pt))
 
-e4vector = ROOT.TLorentzVector()
+#e4vector = ROOT.TLorentzVector()
 mu4vector = ROOT.TLorentzVector()
 
 e_pt = []
