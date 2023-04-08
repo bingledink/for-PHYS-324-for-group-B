@@ -55,7 +55,7 @@ for i in range(len(genpart_pt)):
     lep_idx = 0
     antilep_idx = 0
 
-    for j in range(len(genpart_pt(i-1))):
+    for j in range(len(genpart_pt[i])-1):
         if (genpart_pid[i][j] == 11 or 13 or 15 ) and (genpart_pid[i][j+1] == -12 or -14 or -16) and num_leps == 0:
             lep_idx = j
             num_leps += 1
