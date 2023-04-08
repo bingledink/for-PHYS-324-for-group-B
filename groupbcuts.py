@@ -487,12 +487,12 @@ for i in range(len(e_pt)):
     for v in range(len(weight[i])):
         weight_ones_arr[v] = weight[i][v]
 
-    for v in range(len(genjet_pt[i])):
+    for v in range(len(genjet_pt_ones[i])):
         genjet_pt_ones_arr[v] = genjet_pt_ones[i][v]
         genjet_eta_ones_arr[v] = genjet_eta_ones[i][v]
         genjet_phi_ones_arr[v] = genjet_phi_ones[i][v]
         genjet_mass_ones_arr[v] = genjet_mass_ones[i][v]
-    for v in range(len(genpart_pt[i])):
+    for v in range(len(genpart_pt_ones[i])):
         genpart_pt_ones_arr[v] = genpart_pt_ones[i][v]
         genpart_eta_ones_arr[v] = genpart_eta_ones[i][v]
         genpart_phi_ones_arr[v] = genpart_phi_ones[i][v]
