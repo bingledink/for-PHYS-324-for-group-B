@@ -36,6 +36,7 @@ parser.add_argument('-o', '--output', help='Output')
 args = parser.parse_args()
 
 fileptr = uproot.open(args.input)
+outputfile = ROOT.TFile(args.output, 'recreate')
 
 genpart_pt = fileptr['CutTree']['genpart_pt_ones'].array()
 genpart_eta = fileptr['CutTree']['genpart_eta_ones'].array()
