@@ -138,7 +138,51 @@ for event_idx in range(len(elec_pt)):
                 continue
             if jet_btag[event_idx][i_1] ==0 and jet_btag[event_idx][i_2] == 0:
                 continue
+            if(getptag[event_idx][i_1] != 0 and getptag[event_idx][i_2]):
+                tt_mass_1, top_p4_1, atop_p4_1, new_p4_1, newbar_p4_1, sw_1 = try_smear(jet_1, jet_2, alep4vector, lep4vector, met_x, met_y, event_idx)
+                tt_mass_2, top_p4_2, atop_p4_2, new_p4_2, newbar_p4_2, sw_2 = try_smear(jet_2, jet_1, alep4vector, lep4vector, met_x, met_y, event_idx)
+    
+                if(tt_mass_1 == -999 and tt_mass_2 == -999):
+                    continue
 
+                btag_counter = 2
+    
+                if(tt_mass_1 == -999):
+                    tt_mass_final = tt_mass_2
+                    top_p4_final = top_p4_2
+                    atop_p4_final = atop_p4_2
+                    new_p4_final = new_p4_2
+                    anew_p4_final = anew_p4_2
+                    b_v4_final = jet_2
+                    bbar_v4_final = jet_1
+        
+                if(tt_mass_2 == -999):
+                    tt_mass_final = tt_mass_1
+                    top_p4_final = top_p4_1
+                    atop_p4_final = atop_p4_1
+                    new_p4_final = new_p4_1
+                    anew_p4_final = anew_p4_1
+                    b_v4_final = jet_1
+                    bbar_v4_final = jet_2
+    
+                if(tt_mass_1 != -999 and tt_mass_2 != -999 and sw_2 <= sw_1):
+                    tt_mass_final = tt_mass_1
+                    top_p4_final = top_p4_1
+                    atop_p4_final = atop_p4_1
+                    new_p4_final = new_p4_1
+                    anew_p4_final = anew_p4_1
+                    b_v4_final = jet_1
+                    bbar_v4_final = jet_2
+        
+                if(tt_mass_1 != -999 and tt_mass_2 != -999 and sw_1 <= sw_2):
+                    tt_mass_final = tt_mass_2
+                    top_p4_final = top_p4_2
+                    atop_p4_final = atop_p4_2
+                    new_p4_final = new_p4_2
+                    anew_p4_final = anew_p4_2
+                    b_v4_final = jet_2
+                    bbar_v4_final = jet_1
+        
 
             
             
