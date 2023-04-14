@@ -64,11 +64,13 @@ alep_mass = []
 top_pt = []
 top_eta = []
 top_phi = []
+top_rap = []
 top_mass = []
 
 atop_pt = []
 atop_eta = []
 atop_phi = []
+atop_rap
 atop_mass = []
 
 b_pt = []
@@ -233,6 +235,24 @@ for event_idx in range(len(elec_pt)):
     com_4vec = gen_top_4vec + gen_atop_4vec
     tt_mass.append(tt_mass_final)
     top_pt.append(top_p4_final.Pt())
+    top_eta.append(top_p4_final.Eta())
+    top_phi.append(top_p4_final.Phi())
+    top_rap.append(top_p4_final.Rapidity())
+    
+    atop_pt.append(atop_p4_final.Pt())
+    atop_eta.append(atop_p4_final.Eta())
+    atop_phi.append(atop_p4_final.Phi())
+    atop_rap.append(atop_p4_final.Rapidity())
+    
+    nu_pt.append(nu_p4_final.Pt())
+    nu_eta.append(nu_p4_final.Eta())
+    nu_phi.append(nu_p4_final.Phi())
+    nu_rap.append(nu_p4_final.Rapidity())
+    
+    anu_pt.append(anu_p4_final.Pt())
+    anu_eta.append(anu_p4_final.Eta())
+    anu_phi.append(anu_p4_final.Phi())
+    anu_rap.append(anu_p4_final.Rapidity())
 
             
             
