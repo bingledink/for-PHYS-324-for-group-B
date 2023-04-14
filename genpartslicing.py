@@ -87,7 +87,7 @@ for i in range(len(genpart_pt)):
     gen_top_phi.append(genpart_pt[i][3])
     gen_top_mass.append(genpart_pt[i][3])
 
-outputfile = ROOT.TFile(args.imput, "recreate")    
+outputfile = ROOT.TFile(args.input, "recreate")    
 
 tree = ROOT.TTree("GenSliceTree", "GenSliceTree")
 
