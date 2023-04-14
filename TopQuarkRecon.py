@@ -204,6 +204,33 @@ for event_idx in range(len(elec_pt)):
                     anew_p4_final = anew_p4_2
                     b_v4_final = jet_2
                     bbar_v4_final = jet_1
+                if(tt_mass_1 != -999 and tt_mass_2 != -999 and sw_2 <= sw_1 and high_w < sw_1):
+                    tt_mass_final = tt_mass_1
+                    top_p4_final = top_p4_1
+                    atop_p4_final = atop_p4_1
+                    new_p4_final = new_p4_1
+                    anew_p4_final = anew_p4_1
+                    b_v4_final = jet_1
+                    bbar_v4_final = jet_2
+                if(tt_mass_1 != -999 and tt_mass_2 != -999 and sw_1 <= sw_2 and high_w < sw_2):
+                    tt_mass_final = tt_mass_2
+                    top_p4_final = top_p4_2
+                    atop_p4_final = atop_p4_2
+                    new_p4_final = new_p4_2
+                    anew_p4_final = anew_p4_2
+                    b_v4_final = jet_2
+                    bbar_v4_final = jet_1
+                continue
+    if(tt_mass_final == 0):
+        continue
+    for i in range(len(genpart_pt[event_idx])):
+        if(genpart_pid[event_idx] == 6 and genpart_status == 62):
+            gen_top_4vec == ROOT.TLorentzVector()
+            gen_top_4vec.SetPtEtaPhiM(genpart_pt, genpart_eta, genpart_phi, genpart_mass)
+        if(genpart_pid[event_idx] == -6 and genpart_status == 62):
+            gen_atop_4vec == ROOT.TLorentzVector()
+            gen_atop_4vec.SetPtEtaPhiM(genpart_pt, genpart_eta, genpart_phi, genpart_mass)
+            
         
 
             
