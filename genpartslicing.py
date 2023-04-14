@@ -64,7 +64,7 @@ for i in range(len(genpart_pt)):
             antilep_idx = j
             num_antileps += 1
 
-    if num_lep == 0 or num_antileps == 0:
+    if num_leps == 0 or num_antileps == 0:
         continue
 
     gen_lep_pt.append(genpart_pt[i][lep_idx])
