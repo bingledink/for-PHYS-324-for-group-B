@@ -224,14 +224,15 @@ for event_idx in range(len(elec_pt)):
     if(tt_mass_final == 0):
         continue
     for i in range(len(genpart_pt[event_idx])):
-        if(genpart_pid[event_idx] == 6 and genpart_status == 62):
+        if(genpart_pid[event_idx][i] == 6 and genpart_status[event_idx][i] == 62):
             gen_top_4vec == ROOT.TLorentzVector()
-            gen_top_4vec.SetPtEtaPhiM(genpart_pt, genpart_eta, genpart_phi, genpart_mass)
-        if(genpart_pid[event_idx] == -6 and genpart_status == 62):
+            gen_top_4vec.SetPtEtaPhiM(genpart_pt[event_idx][i], genpart_eta[event_idx][i], genpart_phi[event_idx][i], genpart_mass[event_idx][i])
+        if(genpart_pid[event_idx][i] == -6 and genpart_status[event_idx][i] == 62):
             gen_atop_4vec == ROOT.TLorentzVector()
-            gen_atop_4vec.SetPtEtaPhiM(genpart_pt, genpart_eta, genpart_phi, genpart_mass)
-            
-        
+            gen_atop_4vec.SetPtEtaPhiM(genpart_pt[event_idx][i], genpart_eta[event_idx][i], genpart_phi[event_idx][i], genpart_mass[event_idx][i])
+    com_4vec = gen_top_4vec + gen_atop_4vec
+    tt_mass.append(tt_mass_final)
+    top_pt.append(top_p4_final.Pt())
 
             
             
